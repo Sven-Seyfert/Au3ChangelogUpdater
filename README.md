@@ -17,7 +17,7 @@
 
 ## Description
 
-Au3ChangelogUpdater [...] description [...].
+Au3ChangelogUpdater allows auto update your CHANGELOG.md file based on the format of [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) and by [Semantic Versioning](https://semver.org/spec/v2.0.0.html) version structure.
 
 ## Features
 
