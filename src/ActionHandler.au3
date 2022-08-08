@@ -34,6 +34,7 @@ Func _Actions()
 
     _WriteNextTagSectionInChangelog($sNewTag, $aListOfCommits)
     _WriteComparisonLinkOfCurrentTag($sTag, $sNewTag)
+    _VersionBump($sTag, $sNewTag)
 
     Local $iMessageIcon = 64
     MsgBox($iMessageIcon, 'Changelog update', 'Changelog was updated from git tag "' & $sTag & '" to "v' & $sNewTag & '".', $iMessageTimeout)
