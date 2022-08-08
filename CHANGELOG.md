@@ -11,13 +11,25 @@ Go to [legend](#legend---types-of-changes) for further information about the typ
 
 ## [Unreleased]
 
+## [0.2.0] - 2022-08-08
+
+### Added
+
+- Auto version bump in au3 files (see #pragma compile).
+- Favicon and logo image.
+
+### Changed
+
+- Small code adjustments and rebuild executable.
+
 ## [0.1.0] - 2022-08-01
 
 ### Added
 
 - Initial commit with all repository data and dependencies.
 
-[Unreleased]: https://github.com/Sven-Seyfert/Au3ChangelogUpdater/compare/v0.1.0...HEAD
+[Unreleased]: https://github.com/Sven-Seyfert/Au3ChangelogUpdater/compare/v0.2.0...HEAD
+[0.2.0]: https://github.com/Sven-Seyfert/Au3ChangelogUpdater/compare/v0.1.0...v0.2.0
 [0.1.0]: https://github.com/Sven-Seyfert/Au3ChangelogUpdater/releases/tag/v0.1.0
 
 ---
