@@ -114,8 +114,6 @@ Func _WriteComparisonLinkOfCurrentTag($sTag, $sNewTag)
             Local $sReplace = '/compare/v' & $sNewTag & '...HEAD'
 
             Local $sUnreleasedComparisonLink = StringRegExpReplace($aFileContent[$i], $sSearch, $sReplace)
-            ConsoleWrite($aFileContent[$i] & @CRLF)
-            ConsoleWrite($sUnreleasedComparisonLink & @CRLF)
 
             _FileWriteToLine($sChangelogFilePath, $i + 1, $sUnreleasedComparisonLink, True)
 

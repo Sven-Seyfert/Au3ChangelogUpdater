@@ -1,5 +1,4 @@
-;~ Global $sRepositoryPath    = @ScriptDir
-Global $sRepositoryPath    = 'C:\LocalWorkspace\GitHub\Public\Au3NewProject'
+Global $sRepositoryPath    = @ScriptDir
 Global $sChangelogFilePath = $sRepositoryPath & '\CHANGELOG.md'
 
 Global Const $iMessageTimeout = 30
