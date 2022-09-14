@@ -11,6 +11,12 @@ Go to [legend](#legend---types-of-changes) for further information about the typ
 
 ## [Unreleased]
 
+## [1.0.0] - 2022-09-14
+
+### Added
+
+- Differentiation functionality between GitHub and GitLab code hosting platform.
+
 ## [0.2.0] - 2022-08-08
 
 ### Added
@@ -28,7 +34,8 @@ Go to [legend](#legend---types-of-changes) for further information about the typ
 
 - Initial commit with all repository data and dependencies.
 
-[Unreleased]: https://github.com/Sven-Seyfert/Au3ChangelogUpdater/compare/v0.2.0...HEAD
+[Unreleased]: https://github.com/Sven-Seyfert/Au3ChangelogUpdater/compare/v1.0.0...HEAD
+[1.0.0]: https://github.com/Sven-Seyfert/Au3ChangelogUpdater/compare/v0.2.0...v1.0.0
 [0.2.0]: https://github.com/Sven-Seyfert/Au3ChangelogUpdater/compare/v0.1.0...v0.2.0
 [0.1.0]: https://github.com/Sven-Seyfert/Au3ChangelogUpdater/releases/tag/v0.1.0
 
