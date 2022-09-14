@@ -1,6 +1,10 @@
 Global $sRepositoryPath    = @ScriptDir
 Global $sChangelogFilePath = $sRepositoryPath & '\CHANGELOG.md'
 
+Global Const $sGithub = 'github.'
+Global Const $sGitlab = 'gitlab.'
+Global $sCodeHostingPlatform
+
 Global Const $iMessageTimeout = 30
 Global $iLineOfCurrentTag     = 0
 

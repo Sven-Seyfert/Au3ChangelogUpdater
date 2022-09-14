@@ -96,7 +96,10 @@ Func _WriteComparisonLinkOfCurrentTag($sTag, $sNewTag)
 
     For $i = 0 To _GetCount($aFileContent) Step 1
         If StringInStr($aFileContent[$i], $sFoundIndicator, $iFastComparison) <> 0 Then
-            If StringInStr($aFileContent[$i], '/releases/tag/', $iFastComparison) <> 0 Then
+            _GetCodeHostingPlatform($aFileContent[$i])
+
+            If StringInStr($aFileContent[$i], '/releases/tag/', $iFastComparison) <> 0 Or _
+               StringInStr($aFileContent[$i], '/tags/', $iFastComparison) <> 0 Then
                 _FromReleaseLink($sNewTag, $aFileContent, $i, $sSemVer)
 
                 ExitLoop
@@ -111,7 +114,14 @@ Func _WriteComparisonLinkOfCurrentTag($sTag, $sNewTag)
     For $i = 0 To _GetCount($aFileContent) Step 1
         If StringInStr($aFileContent[$i], '[Unreleased]:', $iFastComparison) <> 0 Then
             Local $sSearch  = '(/compare/.+?)$'
-            Local $sReplace = '/compare/v' & $sNewTag & '...HEAD'
+
+            If $sCodeHostingPlatform == $sGithub Then
+                Local $sReplace = '/compare/v' & $sNewTag & '...HEAD'
+            EndIf
+
+            If $sCodeHostingPlatform == $sGitlab Then
+                Local $sReplace = '/compare/v' & $sNewTag & '...main'
+            EndIf
 
             Local $sUnreleasedComparisonLink = StringRegExpReplace($aFileContent[$i], $sSearch, $sReplace)
 
@@ -122,8 +132,29 @@ Func _WriteComparisonLinkOfCurrentTag($sTag, $sNewTag)
     Next
 EndFunc
 
+Func _GetCodeHostingPlatform($sLink)
+    Local Const $iFastComparison = 2
+
+    If StringInStr(StringLower($sLink), $sGithub, $iFastComparison) <> 0 Then
+        $sCodeHostingPlatform = $sGithub
+
+        Return
+    EndIf
+
+    If StringInStr(StringLower($sLink), $sGitlab, $iFastComparison) <> 0 Then
+        $sCodeHostingPlatform = $sGitlab
+    EndIf
+EndFunc
+
 Func _FromReleaseLink($sNewTag, $aFileContent, $i, $sSemVer)
-    Local $sSearch  = '(/releases/tag/)(.+?)$'
+    If $sCodeHostingPlatform == $sGithub Then
+        Local $sSearch  = '(/releases/tag/)(.+?)$'
+    EndIf
+
+    If $sCodeHostingPlatform == $sGitlab Then
+        Local $sSearch  = '(/tags/)(.+?)$'
+    EndIf
+
     Local $sReplace = '/compare/$2...v' & $sNewTag
 
     Local $sNewTagComparisonLink = StringRegExpReplace($aFileContent[$i], $sSearch, $sReplace)
